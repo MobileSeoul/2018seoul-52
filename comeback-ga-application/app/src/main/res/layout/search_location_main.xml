@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackgroundGray"
+        tools:context=".app.location.SearchLocationActivity"
+        >
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/layout_search_location_header"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+
+            <EditText
+                android:id="@+id/et_search_location_search"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="@dimen/common_margin_horizontal"
+                android:layout_marginVertical="8dp"
+                android:background="@color/colorWhite"
+                android:lines="1"
+                android:hint="검색..."
+                android:singleLine="true"
+                android:paddingHorizontal="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+            <ImageView
+                android:id="@+id/btn_search_location_search"
+                android:layout_width="56dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_search"
+                android:scaleX="0.5"
+                android:scaleY="0.5"
+                app:layout_constraintTop_toTopOf="@id/et_search_location_search"
+                app:layout_constraintEnd_toEndOf="@id/et_search_location_search"
+                app:layout_constraintBottom_toBottomOf="@id/et_search_location_search"
+                />
+
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_search_location"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/search_location_item"
+            app:layout_constraintTop_toBottomOf="@id/layout_search_location_header"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/view_search_location_empty"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:text="검색된 장소가 없습니다."
+            android:gravity="center"
+            android:visibility="visible"
+            android:background="@color/colorWhite"
+            app:layout_constraintTop_toBottomOf="@id/layout_search_location_header"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="post"
+            type="com.project.androidtest.model.post.PostModel"
+            />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:foreground="@drawable/common_select_effect"
+        >
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/iv_like_post_poster"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@color/colorPrimary"
+            android:layout_marginVertical="@dimen/common_margin_vertical"
+            android:layout_marginStart="@dimen/common_margin_horizontal"
+            app:roundedCornerRadius="60dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:imageUrl="@{post.poster}"
+            />
+
+        <TextView
+            android:id="@+id/tv_like_post_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_margin_horizontal"
+            android:text="@{post.title}"
+            tools:text="6개월된 냥이 보살펴주실분 찾습니다ㅠㅠ"
+            android:layout_marginEnd="62dp"
+            android:lines="1"
+            android:ellipsize="end"
+            app:layout_constraintStart_toEndOf="@id/iv_like_post_poster"
+            app:layout_constraintTop_toTopOf="@id/iv_like_post_poster"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tv_like_post_location"
+            />
+
+        <TextView
+            android:id="@+id/tv_like_post_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/common_primary_border_radius_4"
+            android:ellipsize="end"
+            android:lines="1"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:text="@{post.location}"
+            android:textColor="@color/colorPrimary"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_like_post_poster"
+            app:layout_constraintEnd_toEndOf="@id/tv_like_post_title"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/tv_like_post_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_like_post_title"
+            tools:text="위치"
+            />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/colorDividerGray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>
+

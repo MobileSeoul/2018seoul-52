@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_new"
+    >
+
+    <TextView
+        android:id="@+id/label_new_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:text="@string/app_name"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/colorWhite"
+        app:layout_constraintStart_toStartOf="@id/label_new_title"
+        app:layout_constraintEnd_toEndOf="@id/label_new_title"
+        app:layout_constraintTop_toBottomOf="@id/label_new_title"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorWhite"
+        android:text="@string/new_subtitle"
+        android:textStyle="bold"
+        android:lineSpacingExtra="@dimen/common_line_spacing"
+        android:layout_marginTop="@dimen/common_margin_vertical"
+        app:layout_constraintStart_toStartOf="@id/label_new_title"
+        app:layout_constraintTop_toBottomOf="@id/label_new_title"
+        />
+
+    <TextView
+        android:id="@+id/btn_new_content_register"
+        android:layout_width="135dp"
+        android:layout_height="@dimen/common_button_height"
+        android:text="등록하기"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:foreground="@drawable/common_select_effect"
+        android:background="@drawable/common_white_border"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="32dp"
+        android:layout_marginStart="32dp"
+        />
+
+</android.support.constraint.ConstraintLayout>

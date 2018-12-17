@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="post"
+            type="com.project.androidtest.model.post.PostModel"
+            />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".app.post.update.PostUpdateActivity"
+        >
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:layout_gravity="center"
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                />
+
+            <TextView
+                android:id="@+id/btn_toolbar_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="저장"
+                android:textColor="@color/colorWhite"
+                android:layout_gravity="end"
+                android:layout_marginEnd="@dimen/common_margin_horizontal"
+                />
+
+            <TextView
+                android:id="@+id/btn_toolbar_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="삭제"
+                android:textColor="@color/colorWhite"
+                android:layout_gravity="end"
+                android:layout_marginEnd="@dimen/common_margin_horizontal"
+                />
+
+        </android.support.v7.widget.Toolbar>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            android:background="#ffffff"
+            app:tabSelectedTextColor="@color/colorAccent"
+            app:tabTextColor="#000000"
+            >
+
+            <android.support.design.widget.TabItem
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="상세정보"
+                />
+
+            <android.support.design.widget.TabItem
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="댓글"
+                />
+
+        </android.support.design.widget.TabLayout>
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tabLayout"
+            >
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/layout_post_update_01"
+                >
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:id="@+id/iv_post_update_poster"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintDimensionRatio="16:9"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@color/colorWhite"
+                    android:foreground="@drawable/common_select_effect"
+                    app:imageUrl="@{post.poster}"
+                    />
+
+                <TextView
+                    android:id="@+id/btn_post_update_category"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    tools:text="책임분양"
+                    android:paddingVertical="8dp"
+                    android:gravity="center"
+                    android:text="@{post.category}"
+                    android:background="@color/colorPrimary"
+                    android:foreground="@drawable/common_select_effect"
+                    android:textColor="@color/colorWhite"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_post_update_poster"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+
+                <EditText
+                    android:id="@+id/et_post_update_title"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:background="@color/colorWhite"
+                    android:paddingHorizontal="16dp"
+                    android:hint="제목"
+                    android:lines="1"
+                    android:text="@{post.title}"
+                    android:singleLine="true"
+                    android:textColorHint="@color/colorPrimary"
+                    android:layout_marginTop="@dimen/common_margin_vertical"
+                    app:layout_constraintTop_toBottomOf="@id/btn_post_update_category"
+                    />
+
+                <TextView
+                    android:id="@+id/btn_post_update_location"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="50dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:background="@color/colorWhite"
+                    android:paddingHorizontal="16dp"
+                    android:hint="위치"
+                    android:singleLine="true"
+                    android:text="@{post.location}"
+                    android:lines="2"
+                    android:foreground="@drawable/common_select_effect"
+                    android:gravity="center_vertical"
+                    android:textColorHint="@color/colorPrimary"
+                    android:layout_marginTop="@dimen/common_margin_vertical"
+                    app:layout_constraintTop_toBottomOf="@id/et_post_update_title"
+                    />
+
+                <EditText
+                    android:id="@+id/et_post_update_description"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="180dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:background="@color/colorWhite"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="16dp"
+                    android:text="@{post.description}"
+                    android:hint="가능한 상세하게 입력해주시면 큰 도움이 됩니다 :)"
+                    android:gravity="top"
+                    android:textColorHint="@color/colorPrimary"
+                    android:layout_marginTop="@dimen/common_margin_vertical"
+                    app:layout_constraintTop_toBottomOf="@id/btn_post_update_location"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="@dimen/common_bottom_spacing"
+                    />
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/layout_post_update_02"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/colorBackgroundGray"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tabLayout"
+            >
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/colorWhite"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rv_post_update_comment"
+                />
+
+            <EditText
+                android:id="@+id/et_post_update_comment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:minHeight="40dp"
+                android:layout_marginEnd="8dp"
+                android:hint="한줄댓글"
+                android:textSize="14sp"
+                android:background="@color/colorBackgroundGray"
+                android:paddingHorizontal="8dp"
+                android:layout_marginBottom="@dimen/common_margin_vertical"
+                android:layout_marginStart="@dimen/common_margin_horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_post_update_comment"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/btn_post_update_comment"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text=">"
+                android:gravity="center"
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorAccent"
+                android:layout_marginEnd="@dimen/common_margin_horizontal"
+                app:layout_constraintTop_toTopOf="@id/et_post_update_comment"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_post_update_comment"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/common_margin_vertical"
+                android:visibility="visible"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/et_post_update_comment"
+                />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

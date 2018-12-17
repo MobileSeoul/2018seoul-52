@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".app.regist.RegistActivity"
+        android:background="@color/colorBackgroundGray"
+        >
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:layout_gravity="center"
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                />
+
+            <TextView
+                android:id="@+id/btn_toolbar_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="저장"
+                android:textColor="@color/colorWhite"
+                android:layout_gravity="end"
+                android:layout_marginEnd="@dimen/common_margin_horizontal"
+                />
+
+        </android.support.v7.widget.Toolbar>
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            >
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <ImageView
+                    android:id="@+id/iv_post_create_poster"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintDimensionRatio="16:9"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@color/colorWhite"
+                    android:foreground="@drawable/common_select_effect"
+                    />
+
+                <TextView
+                    android:id="@+id/view_post_create_poster_empty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="사진을 불러와주세요:)"
+                    android:textColor="@color/colorPrimary"
+                    app:layout_constraintTop_toTopOf="@id/iv_post_create_poster"
+                    app:layout_constraintStart_toStartOf="@id/iv_post_create_poster"
+                    app:layout_constraintEnd_toEndOf="@id/iv_post_create_poster"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_post_create_poster"
+                    />
+
+                <TextView
+                    android:id="@+id/btn_post_create_category"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    tools:text="책임분양"
+                    android:paddingVertical="8dp"
+                    android:gravity="center"
+                    android:text="책임분양"
+                    android:background="@color/colorPrimary"
+                    android:textColor="@color/colorWhite"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:foreground="@drawable/common_select_effect"
+                    app:layout_constraintTop_toBottomOf="@id/iv_post_create_poster"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+
+                <EditText
+                    android:id="@+id/et_post_create_title"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:background="@color/colorWhite"
+                    android:paddingHorizontal="16dp"
+                    android:hint="제목"
+                    android:lines="1"
+                    android:singleLine="true"
+                    android:textColorHint="@color/colorPrimary"
+                    android:layout_marginTop="@dimen/common_margin_vertical"
+                    app:layout_constraintTop_toBottomOf="@id/btn_post_create_category"
+                    />
+
+                <TextView
+                    android:id="@+id/btn_post_create_location"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="50dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:background="@color/colorWhite"
+                    android:paddingHorizontal="16dp"
+                    android:hint="위치"
+                    android:singleLine="true"
+                    android:lines="2"
+                    android:foreground="@drawable/common_select_effect"
+                    android:gravity="center_vertical"
+                    android:textColorHint="@color/colorPrimary"
+                    android:layout_marginTop="@dimen/common_margin_vertical"
+                    app:layout_constraintTop_toBottomOf="@id/et_post_create_title"
+                    />
+
+                <EditText
+                    android:id="@+id/et_post_create_description"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="180dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:background="@color/colorWhite"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="16dp"
+                    android:hint="가능한 상세하게 입력해주시면 큰 도움이 됩니다 :)"
+                    android:gravity="top"
+                    android:textColorHint="@color/colorPrimary"
+                    android:layout_marginTop="@dimen/common_margin_vertical"
+                    app:layout_constraintTop_toBottomOf="@id/btn_post_create_location"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="@dimen/common_bottom_spacing"
+                    />
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>
+

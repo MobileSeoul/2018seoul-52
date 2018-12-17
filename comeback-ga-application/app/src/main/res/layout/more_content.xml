@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.project.androidtest.model.user.UserModel"
+            />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackgroundGray">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/layout_more_profile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@color/colorWhite"
+            >
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/iv_more_profile_img"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:roundedCornerRadius="60dp"
+                android:layout_marginVertical="@dimen/common_margin_vertical"
+                android:layout_marginStart="@dimen/common_margin_horizontal"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:imageUrl="@{user.poster}"
+                />
+
+            <TextView
+                android:id="@+id/tv_more_profile_nickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/common_margin_horizontal"
+                android:background="@drawable/common_primary_border_radius_4"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="4dp"
+                tools:text="못된고양이"
+                android:textColor="@color/colorPrimary"
+                app:layout_constraintBottom_toTopOf="@id/tv_more_profile_user"
+                app:layout_constraintStart_toEndOf="@id/iv_more_profile_img"
+                app:layout_constraintTop_toTopOf="@id/iv_more_profile_img"
+                app:layout_constraintVertical_chainStyle="packed"
+                />
+
+            <TextView
+                android:id="@+id/tv_more_profile_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="testuser"
+                app:layout_constraintStart_toStartOf="@id/tv_more_profile_nickname"
+                app:layout_constraintTop_toBottomOf="@id/tv_more_profile_nickname"
+                app:layout_constraintBottom_toBottomOf="@id/iv_more_profile_img"
+                />
+
+            <TextView
+                android:id="@+id/btn_more_profile_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="수정"
+                android:layout_marginTop="@dimen/common_margin_vertical"
+                android:layout_marginHorizontal="@dimen/common_margin_horizontal"
+                android:background="@drawable/common_primary_radius_4"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="4dp"
+                android:textColor="@color/colorWhite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/common_margin_vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_more_profile"
+            >
+
+            <TextView
+                android:id="@+id/label_more_my_post"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="나의 포스트"
+                android:layout_marginStart="@dimen/common_margin_horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_more_my_post"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/common_line_spacing"
+                android:background="@color/colorWhite"
+                app:layout_constraintTop_toBottomOf="@id/label_more_my_post"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/view_more_empty_posts"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="@dimen/common_line_spacing"
+                android:text="등록된 포스트가 없습니다"
+                android:gravity="center"
+                android:visibility="invisible"
+                android:background="@color/colorWhite"
+                app:layout_constraintTop_toBottomOf="@id/label_more_my_post"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/btn_more_help"
+                android:background="@color/colorWhite"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:foreground="@drawable/common_select_effect"
+                android:text="유기동물 발견시 대처방법"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="@dimen/common_margin_vertical"
+                app:layout_constraintTop_toBottomOf="@id/view_more_empty_posts"
+                />
+
+            <TextView
+                android:id="@+id/btn_more_logout"
+                android:background="@color/colorWhite"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:foreground="@drawable/common_select_effect"
+                android:text="로그아웃"
+                android:layout_marginTop="@dimen/common_line_spacing"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_more_help"
+                />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.project.androidtest.model.user.UserModel"
+            />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackgroundGray"
+        tools:context=".app.user.my.MyProfileActivity"
+        >
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:layout_gravity="center"
+                style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                />
+
+            <TextView
+                android:id="@+id/btn_toolbar_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="저장"
+                android:textColor="@color/colorWhite"
+                android:layout_gravity="end"
+                android:layout_marginEnd="@dimen/common_margin_horizontal"
+                />
+
+        </android.support.v7.widget.Toolbar>
+
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            >
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorWhite"
+                >
+
+                <View
+                    android:id="@+id/view_my_profile_poster_bg"
+                    android:layout_width="0dp"
+                    android:layout_height="200dp"
+                    android:background="@color/colorPrimary"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/iv_my_profile_poster"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@id/view_my_profile_poster_bg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="수정"
+                    android:textColor="@color/colorWhite"
+                    android:background="@drawable/common_white_border"
+                    android:paddingHorizontal="4dp"
+                    android:paddingVertical="2dp"
+                    app:layout_constraintEnd_toEndOf="@id/iv_my_profile_poster"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_my_profile_poster"
+                    />
+
+
+                <EditText
+                    android:id="@+id/et_my_profile_nickname"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:paddingHorizontal="8dp"
+                    android:layout_marginHorizontal="32dp"
+                    android:paddingVertical="4dp"
+                    android:layout_marginTop="32dp"
+                    tools:text="못된고양이"
+                    android:background="@color/colorBackgroundGray"
+                    android:text="@{user.nickname}"
+                    android:hint="닉네임"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view_my_profile_poster_bg"
+                    />
+
+                <EditText
+                    android:id="@+id/et_my_profile_password"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:paddingHorizontal="8dp"
+                    android:background="@color/colorBackgroundGray"
+                    android:layout_marginHorizontal="32dp"
+                    android:paddingVertical="4dp"
+                    android:layout_marginTop="@dimen/common_margin_vertical"
+                    tools:text="password"
+                    android:hint="비밀번호"
+                    android:inputType="textPassword"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_my_profile_nickname"
+                    />
+
+                <EditText
+                    android:id="@+id/et_my_profile_phone"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:paddingHorizontal="8dp"
+                    android:layout_marginHorizontal="32dp"
+                    android:paddingVertical="4dp"
+                    android:layout_marginTop="@dimen/common_margin_vertical"
+                    android:layout_marginBottom="32dp"
+                    tools:text="01012341234"
+                    android:hint="전화번호"
+                    android:inputType="number"
+                    android:text="@{user.phone}"
+                    android:background="@color/colorBackgroundGray"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_my_profile_password"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>
